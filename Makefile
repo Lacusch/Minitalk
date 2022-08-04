@@ -6,7 +6,7 @@
 #    By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/04 06:18:07 by slaszlo-          #+#    #+#              #
-#    Updated: 2022/08/04 06:59:18 by slaszlo-         ###   ########.fr        #
+#    Updated: 2022/08/04 07:03:32 by slaszlo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ LIBFT = libft
 $(SERVER):
 	gcc src/server.c libft/libft.a -o server
 all: submodules libft server 
-libft:
-	make -C $(LIBFT)
+libft/libft.a:
+	@make -C $(LIBFT)
 clean:
 	Make -C libft/ clean
 fclean: clean
