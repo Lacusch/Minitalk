@@ -6,40 +6,34 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:28:18 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/08/09 20:30:52 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/08/16 12:23:08 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <sys/_types.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
+#include "header.h"
 
 void signal_handler(int signum)
 {
-	static int test = 0xFF;
+	static unsigned char c = 0xFF;
 	static int bits = 0;
-	printf ("number: %i\n", test);
+	printf ("number: %i\n", c);
 	printf ("bits: %i\n", bits);
- 	if (signum == 30)
+ 	if (signum == SIGUSR1)
 	{
- 		printf("got signal 1\n");
-		test++;
-		bits++;
+ 		printf("got signal 1 which means '1'\n");
+		c ^= 0x80 >> bits;
 	}
- 	if (signum == 31)
+ 	else if (signum == SIGUSR2)
 	{
- 		printf ("got signal 2\n");
-		test--;
-		bits++;
+ 		printf ("got signal 2 which means '0'\n");
+		c |= 0x80 >> bits;
 	}
+	bits++;
 	if (bits == 8)
 	{
-		printf ("end\n");
+		write (1, &c, 1);
 		bits = 0;
-		test = 0xFF;
+		c = 0xFF;
 	}
 }
 
@@ -51,8 +45,8 @@ int main (int argc, char *argv[])
 	pid_t	pid;
 	pid = getpid();
 	printf("PID: %d\n", pid);
-	signal(SIGUSR1,signal_handler);
-	signal(SIGUSR2,signal_handler);
+	signal(SIGUSR1, signal_handler);
+	signal(SIGUSR2, signal_handler);
 	while (1)
 		pause();
 	return (0);
