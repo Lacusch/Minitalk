@@ -6,40 +6,35 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:23:20 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/08/23 13:13:21 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:15:59 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+void sent_signal (char *string, int pid)
+{
+	
+}
 int main (int argc, char* argv[])
 {
 	int s_pid;
-	int c_pid;
 	int counter = -1;
+	int i;
 
-	c_pid = getpid();
-	printf("my pid is:%i", c_pid);
-	// if (argc != 3)
-	// {
-	// 	printf ("error, format correctly");
-	// 	return (1);
-	// }
+	if (argc != 3)
+	{
+		printf ("error, format correctly");
+		return (1);
+	}
 	s_pid = atoi(argv[1]);
-	while (++counter != 8)
+	ft_isdigit(argv[1][i]);
 	{
-		kill (s_pid, SIGUSR1);
-		counter++;
+		if (ft_isdigit(argv[1][i]) == 0)
+		{
+			ft_printf("wrong pid, try again");
+			return (0);
+		}
+		i++;
 	}
-	if (counter == 8)
-	{
-		counter = 0;
-		return (0);
-	}
-	// if (atoi (argv[2]) == 1)
-	// 	kill (pid, SIGUSR1);
-	// else if (atoi(argv[2]) == 2)
-	// 	kill (pid, SIGUSR2);
-	// else
-	// 	printf("Error, try again");
 }
