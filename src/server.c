@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <sys/_types.h>
+#include <sys/types.h>
 #include "../libft/libft.h"
 
 // Adedd prototype signal handler
