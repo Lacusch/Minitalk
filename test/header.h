@@ -1,5 +1,5 @@
 #include <signal.h>
-#include <sys/_types.h>
+#include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>

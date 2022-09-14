@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:04:42 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/08/08 17:08:49 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/14 20:07:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <sys/types.h>
 #include "../libft/libft.h"
+#include "minitalk.h"
 
-// Adedd prototype signal handler
+// added prototype signal handler
 // Can test with kill -s SIGUSR1 "pip" or
 // kill -s SIGUSR2 "pip"
 void signal_handler(int signum)
