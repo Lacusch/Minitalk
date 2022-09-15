@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:04:42 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/14 20:07:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:53:18 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@
 // kill -s SIGUSR2 "pip"
 void signal_handler(int signum)
 {
+	static int bits;
+
 	if (signum == 30)
+	{
 		ft_printf("got signal SIGUSR1\n");
+	}
 	if (signum == 31)
+	{
 		ft_printf ("got signal SIGUSR2\n");
+	}
 	if (signum == 2)
 	{
 		ft_printf("\ninterrupted with the command line\n");
