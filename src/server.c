@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:04:42 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/15 11:53:18 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:01:17 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void signal_handler(int signum)
 	}
 	if (signum == 2)
 	{
-		ft_printf("\ninterrupted with the command line\n");
+		ft_printf("\nGreetings evaluator, this is an easter egg for you 😀\n");
+		ft_printf("Interrupted with the command line");
 		raise(3);
 	}
 }
