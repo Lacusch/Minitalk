@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:55:51 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/15 11:48:38 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:19:38 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void sent_signal (char* str,int pid)
 	int i;
 
 	i = 0;
-	bits = 0;
+	bits = -1;
 
 	while (str[i])
 	{
-		while (bits++ < 9)
-		{
-			if (str[i] & (0x7F >> bits))
+		while (++bits < 8)
+		{  
+			if (str[i] & (0x80 >> bits))
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);

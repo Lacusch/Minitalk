@@ -6,33 +6,42 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:04:42 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/15 12:01:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:21:42 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "minitalk.h"
 
-// added prototype signal handler
-// Can test with kill -s SIGUSR1 "pip" or
-// kill -s SIGUSR2 "pip"
+/*
+Sinal Handler
+*/
+
 void signal_handler(int signum)
 {
-	static int bits;
+	static char c = 0xFF;
+	static int bits = 0;
 
-	if (signum == 30)
-	{
-		ft_printf("got signal SIGUSR1\n");
-	}
-	if (signum == 31)
-	{
-		ft_printf ("got signal SIGUSR2\n");
-	}
 	if (signum == 2)
 	{
 		ft_printf("\nGreetings evaluator, this is an easter egg for you 😀\n");
 		ft_printf("Interrupted with the command line");
 		raise(3);
+	}
+	if (signum == 30)
+	{
+		c ^= 0x80 >> bits;
+	}
+	else if (signum == 31)
+	{
+		c |= 0x80 >> bits;
+	}
+	bits++;
+	if (bits == 8)
+	{
+		ft_putchar_fd(c, 1);
+		bits = 0;
+		c = 0xFF;
 	}
 }
 int main (void)
