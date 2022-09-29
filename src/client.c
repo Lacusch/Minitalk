@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:55:51 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/18 07:19:37 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/29 02:37:53 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int	main(int agrc, char *argv[])
 	}
 	while (i < ft_strlen(argv[2]))
 		sent_signal(&argv[2][i++], ft_atoi(argv[1]));
+	ft_printf("The client sent %i messages\n", i);
 	return (EXIT_SUCCESS);
 }
