@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:04:42 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/09/29 03:03:19 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/09/29 03:04:18 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	signal_handler(int signum)
 
 	if (signum == 2)
 	{
-		write(1, "\nGreetings evaluator, this is an easter egg for you 😀\n", 58);
+		write(1, "\nGreetings evaluator, I hope my eval is going well 😀\n", 58);
 		write(1, "Interrupted with the command line", 34);
 		pid = getpid();
 		kill(pid, 3);
